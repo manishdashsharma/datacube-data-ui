@@ -8,14 +8,21 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ReactJson from "react-json-view";
+import CssBaseline from '@mui/material/CssBaseline';
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 const App = () => {
   const [payload, setPayload] = useState({
-    database_name: "",
-    collection_name: "",
-    limit: null,
-    offset: null,
+    database_name: "PRODUCT_EXPERIENCE_DB0",
+    collection_name: "SAMANTA_CONTENT_EVALUATOR",
+    limit: 2,
+    offset: 0,
   });
   const [jsonDataList, setJsonDataList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -61,7 +68,9 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Container maxWidth="sm">
       <Box mt={4}>
         <Typography variant="h3" component="h1">
           Datacube Data Viewer
@@ -115,12 +124,13 @@ const App = () => {
         {!loading &&
           jsonDataList.map((jsonData, index) => (
             <div key={index}>
-              <ReactJson src={jsonData} displayDataTypes="false" />
+              <ReactJson src={jsonData} displayDataTypes={false} theme="twilight" collapsed= {true} name={false}/>
               <hr />
             </div>
           ))}
       </Box>
     </Container>
+    </ThemeProvider>
   );
 };
 
