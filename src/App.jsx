@@ -19,10 +19,10 @@ const darkTheme = createTheme({
 });
 const App = () => {
   const [payload, setPayload] = useState({
-    database_name: "PRODUCT_EXPERIENCE_DB0",
-    collection_name: "SAMANTA_CONTENT_EVALUATOR",
-    limit: 2,
-    offset: 0,
+    database_name: "",
+    collection_name: "",
+    limit: null,
+    offset: null,
   });
   const [jsonDataList, setJsonDataList] = useState([]);
   const [loading, setLoading] = useState(false);
