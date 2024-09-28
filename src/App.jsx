@@ -34,7 +34,7 @@ const App = () => {
     const startTime = performance.now(); 
     try {
       const response = await axios.post(
-        "https://100105.pythonanywhere.com/api/v3/experience_report_services/?type=retrive_data",
+        "https://100085.pythonanywhere.com/api/datacube/",
         payload
       );
       const data = response.data.response;
